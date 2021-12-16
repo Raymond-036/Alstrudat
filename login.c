@@ -704,7 +704,7 @@ int kelola_rute(){
 		        }
 		        fclose(prute);
 			    fclose(prute1);
-				printf("Data berhasil diubah");
+				printf("Data telah di Update");
 			}	
 			printf("\nMenu Utama [y/t] ? ");
 			again=getch();

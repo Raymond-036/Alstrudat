@@ -719,5 +719,6 @@ int kelola_rute(){
 		menu_admin();
 		system("cls");
 	}
-}while(again == 'y');
+}while(again == 'y'); 
+	
 }  

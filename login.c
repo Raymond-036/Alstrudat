@@ -105,7 +105,7 @@ int menu_utama(){
 int menu_user(){
 	do{
 		system("cls");
-		printf("========Menu Pengguna========\n");
+		printf("======== Menu Pengguna ========\n");
 		printf("Welcome %s \n", user);
 		printf("1. Booking Tiket\n");
 		printf("2. Kelola Profile\n");
@@ -257,7 +257,7 @@ int login_user(){
 int menu_admin(){
 	do{
 		system("cls");
-		printf("========Menu Admin========\n");
+		printf("======== Menu Admin ========\n");
 		printf("Welcome Admin \n");
 		printf("1. Kelola Akun\n");
 		printf("2. Kelola Kota\n");
@@ -395,7 +395,7 @@ int login_admin(){
 int kelola_kota(){
 	do{
 	system("cls");
-	printf("========KELOLA KOTA========\n");
+	printf("======== KELOLA KOTA ========\n");
 	printf("1. Tambah Data Kota\n");
 	printf("2. Lihat Data Kota\n");
 	printf("3. Edit Data Kota\n");
@@ -410,7 +410,7 @@ int kelola_kota(){
 		case 1:
 			
 			system("cls");
-			printf("======TAMBAH DATA KOTA======\n");
+			printf("====== TAMBAH DATA KOTA ======\n");
 			kota *k;
 			FILE *city, *city1;
 			int n,i,j;
@@ -436,7 +436,7 @@ int kelola_kota(){
 			kota k1;
 			int counter = 1;
 		    city = fopen("kota.txt","r");
-			printf("#LIHAT DATA KOTA#");
+			printf("-- LIHAT DATA KOTA --");
 			printf("\nData Lengkap Kota");
 			printf("\n-------------------------------------------------------------------\n");
 			printf("No\t\tKode Kota\t\tNama Kota\n");
@@ -456,7 +456,7 @@ int kelola_kota(){
 			int found = 0;
 			int counter2 = 1;
 			city = fopen("kota.txt","r");
-			printf("#LIHAT DATA KOTA#");
+			printf("-- LIHAT DATA KOTA --");
 			printf("\nData Lengkap Kota");
 			printf("\n-------------------------------------------------------------------\n");
 			printf("No\t\tKode Kota\t\tNama Kota\n");
@@ -569,7 +569,7 @@ int lihat_rute(){
 	int counter4=1;
     prute = fopen("rute.txt","r");
 	system("cls");
-	printf("\n\n#LIHAT DATA RUTE#");
+	printf("\n\n-- LIHAT DATA RUTE --");
 	printf("\nData Lengkap Rute Kereta Api");
 	printf("\n-------------------------------------------------------------------\n");
 	printf("No\t\tKeberangkatan\t\tTujuan\t\tKode_Rute\t\tBisnis\t\tPremium\n");
@@ -583,7 +583,7 @@ int lihat_rute(){
 int kelola_rute(){
 	do{
 	system("cls");
-	printf("========KELOLA KOTA========\n");
+	printf("======== KELOLA KOTA ========\n");
 	printf("1. Tambah Data Rute\n");
 	printf("2. Lihat Data Rute\n");
 	printf("3. Edit Data Rute\n");

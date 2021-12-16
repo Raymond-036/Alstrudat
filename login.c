@@ -197,7 +197,7 @@ int login_user(){
         printf("\n===========================================\n");
         if(pilih2>3){
      		system("cls");
-            printf("INPUT SALAH, COBA LAGI!\n");
+            printf("INPUT SALAH, SILAHKAN COBA LAGI!\n");
 		}switch(pilih2){
 			case 1:
 				
@@ -704,7 +704,7 @@ int kelola_rute(){
 		        }
 		        fclose(prute);
 			    fclose(prute1);
-				printf("Data telah di Update");
+				printf("Data telah di Perbarui");
 			}	
 			printf("\nMenu Utama [y/t] ? ");
 			again=getch();

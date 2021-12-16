@@ -704,7 +704,7 @@ int kelola_rute(){
 		        }
 		        fclose(prute);
 			    fclose(prute1);
-				printf("Data telah di Update");
+				printf("Data berhasil diubah");
 			}	
 			printf("\nMenu Utama [y/t] ? ");
 			again=getch();
@@ -720,5 +720,4 @@ int kelola_rute(){
 		system("cls");
 	}
 }while(again == 'y');
-	
-}  
+}

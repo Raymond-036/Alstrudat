@@ -117,32 +117,6 @@ int menu_user(){
 			system("cls");
             printf("INPUT SALAH, COBA LAGI!\n");
 		}switch(pilih3){
-//			case 1:
-//				system("cls");
-//				printf("Halaman Booking Tiket\n");
-//				printf("\n===========================");
-//				printf("Menu Utama [y/t] ? ");
-//        		again=getch();
-//        		system("cls");
-//				break;
-//				
-//			case 2:
-//				system("cls");
-//				printf("Kelola Profile\n");
-//				printf("\n===========================");
-//				printf("Menu Utama [y/t] ? ");
-//        		again=getch();
-//        		system("cls");
-//				break;
-//			
-//			case 3:
-//				system("cls");
-//				printf("History Pembelian\n");
-//				printf("\n===========================");
-//				printf("Menu Utama [y/t] ? ");
-//        		again=getch();
-//        		system("cls");
-//				break;
 
 case 1:
 				system("cls");

@@ -131,6 +131,14 @@ int menu_user(){
 			case 1:
 				system("cls");
 				printf("Halaman Booking Tiket\n");
+				printf("Kode Jadwal\t\t: JW00001");
+				printf("Jumlah\t\t\t: 2");
+				printf("\n===========================");
+				printf("Penumpang 1\t\t: Dovizioso");
+				printf("Penumpang 2\t\t: Vinales");
+				printf("\n===========================");
+				printf("Total Pembayaran\t= 400,000");
+				printf("Kode Rekening\t\t= 8032255671891");
 				printf("\n===========================");
 				printf("Menu Utama [y/t] ? ");
         		again=getch();
@@ -140,7 +148,12 @@ int menu_user(){
 			case 2:
 				system("cls");
 				printf("Kelola Profile\n");
+				printf("Total Pembayaran\t= 400,000");
+				printf("Kode Rekening\t\t= 8032255671891");
 				printf("\n===========================");
+				printf("Kode tiket Anda = QWR835");
+				printf("Penumpang 1\t\t: Dovizioso");
+				printf("Penumpang 2\t\t: Vinales");
 				printf("Menu Utama [y/t] ? ");
         		again=getch();
         		system("cls");
@@ -149,6 +162,9 @@ int menu_user(){
 			case 3:
 				system("cls");
 				printf("History Pembelian\n");
+				printf("Kode tiket Anda = QWR835");
+				printf("Penumpang 1\t\t: Dovizioso");
+				printf("Penumpang 2\t\t: Vinales");
 				printf("\n===========================");
 				printf("Menu Utama [y/t] ? ");
         		again=getch();

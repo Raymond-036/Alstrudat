@@ -330,3 +330,187 @@ int menu_admin(){
 			    }
 			    fclose(pf);
 			    fclose(pf1);
+				
+
+if(found){
+			            pf = fopen("dataUser.txt","w");
+			            pf1 = fopen("temp.txt","r");
+			
+			            while(fread(&s1,sizeof(dataUser),1,pf1)){
+			                fwrite(&s1,sizeof(dataUser),1,pf);
+			                printf("\n\nData Berhasil Diupdate, Berikut Data Terbaru: ");
+			                printf("\nNama Lengkap : %s",s1.nama);
+				   			printf("\nNomor Handphone : %s",s1.hp);
+				   			printf("\nEmail : %s",s1.email);
+				   			printf("\nPassword : %s",s1.password); 
+							   		
+			            }
+			            fclose(pf);
+			            fclose(pf1);
+			    }
+			    			printf("\nMenu Utama [y/t] ? ");
+			        		again=getch();
+							break;
+				
+			case 2:
+				system("cls");
+				kelola_kota();
+				break;
+			
+			case 3:
+				system("cls");
+				kelola_rute();
+				break;
+			
+			case 4:
+				system("cls");
+				printf("Lihat Pemasukan\n");
+				printf("\n===========================");
+				
+        		again=getch();
+				break;
+			
+			case 5:
+				system("cls");
+				printf("Lihat Jadwal Kereta Api\n");
+				printf("\n===========================");
+				printf("Menu Utama [y/t] ? ");
+        		again=getch();
+				break;
+			
+			case 6:
+				system("cls");
+				menu_utama();
+				break;	
+		}
+	}while(again == 'y');
+}	
+
+int login_admin(){
+	system("cls");
+        printf("\n===========================================\n\t\tHalaman Admin\n-------------------------------------------\n");
+        printf("Email : ");
+        scanf("%s", &emailAdmin);
+        printf("Password : ");
+        scanf("%s", &passAdmin);
+        if((strcmp(emailAdmin,"admin")==0) && (strcmp(passAdmin,"admin") == 0)){
+        	system("cls");
+        	menu_admin();	
+		}else{
+			system("cls");
+			printf("email/password Salah!");
+		}
+    	    
+}
+
+
+int kelola_kota(){
+	do{
+	system("cls");
+	printf("======== KELOLA KOTA ========\n");
+	printf("1. Tambah Data Kota\n");
+	printf("2. Lihat Data Kota\n");
+	printf("3. Edit Data Kota\n");
+	printf("4. Delete Data Kota\n");
+	printf("5. Menu Utama\n");
+	printf("\nPilihan : ");
+	scanf("%d",&pilih5);
+	if(pilih5>5){
+		system("cls");
+            printf("INPUT SALAH, COBA LAGI!\n");
+	}switch(pilih5){
+		case 1:
+			
+			system("cls");
+			printf("====== TAMBAH DATA KOTA ======\n");
+			kota *k;
+			FILE *city, *city1;
+			int n,i,j;
+			
+			k = (kota*)malloc(100*sizeof(kota));
+			city = fopen("kota.txt","a+");
+			
+			printf("# TAMBAH DATA KOTA #\n\n");
+			for(i=0;i<1;i++){
+				printf("Tambah Kota : ");
+				fflush(stdin);
+			    scanf("%s %s",k[i].kode,k[i].namaKota);
+			    fwrite(k+i,sizeof(kota),1,city);
+			}
+	    
+	    fclose(city);	
+		printf("Menu Utama [y/t] ? ");
+        again=getch();		
+			break;
+			
+		case 2:
+			system("cls");
+			kota k1;
+			int counter = 1;
+		    city = fopen("kota.txt","r");
+			printf("# LIHAT DATA KOTA #");
+			printf("\nData Lengkap Kota");
+			printf("\n-------------------------------------------------------------------\n");
+			printf("No\t\tKode Kota\t\tNama Kota\n");
+			while(fread(&k1,sizeof(kota),1,city)) { 
+				printf("%d\t\t%s\t\t\t%s\n",counter,k1.kode,k1.namaKota);
+				counter++;
+		    }
+			printf("\n\n-------------------------------------------------------------------");
+    		fclose(city);
+            printf("\nMenu Utama [y/t] ? ");
+			again=getch();
+			break;
+			
+		case 3:
+			system("cls");
+			char id_kota[5];
+			int found = 0;
+			int counter2 = 1;
+			city = fopen("kota.txt","r");
+			printf("# LIHAT DATA KOTA #");
+			printf("\nData Lengkap Kota");
+			printf("\n-------------------------------------------------------------------\n");
+			printf("No\t\tKode Kota\t\tNama Kota\n");
+			while(fread(&k1,sizeof(kota),1,city)) { 
+				printf("%d\t\t%s\t\t\t%s\n",counter2,k1.kode,k1.namaKota);
+				counter2++;
+		    }
+			printf("\n\n-------------------------------------------------------------------");
+    		fclose(city);
+    		
+		    char kodeKota[10];
+		    fflush(stdin);
+		    printf("\nEdit Kota : EDIT_");
+		    scanf("%[^\n]s",kodeKota);
+		    
+		    city = fopen("kota.txt","r");
+		    city1= fopen("temp2.txt","w");
+		    while(fread(&k1,sizeof(kota),1,city)){
+		        if(strcmp(k1.kode,kodeKota)==0){
+		        	found ==1;
+		        	fflush(stdin);
+		            printf("\nKode Kota : ");
+		            fflush(stdin);
+				    scanf("%[^\n]s",k1.kode);
+				    fflush(stdin);
+				    printf("Nama Kota : ");
+				    scanf("%[^\n]s",k1.namaKota); 	
+		        } 
+		        fwrite(&k1,sizeof(kota),1,city1);
+		    }
+		    fclose(city);
+		    fclose(city1);
+		    
+			if(found==0){
+            	city = fopen("kota.txt","w");
+	            city1 = fopen("temp2.txt","r");
+	
+	        while(fread(&k1,sizeof(kota),1,city1)){
+	           fwrite(&k1,sizeof(kota),1,city);	
+            }
+            fclose(city);
+            fclose(city1);
+    }
+
+			break;

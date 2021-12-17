@@ -162,3 +162,171 @@ int menu_user(){
 		}
 	}while(again == 'y');
 }
+
+
+int login_user(){
+			system("cls");  
+			 int i, j, found=0;
+    dataUser s1;
+    dataUser *s;
+    char email[100];
+    char password[100];
+			printf("======================\n");
+			printf("LOGIN\n");
+			printf("======================\n");
+			fflush(stdin);
+			printf("Username : ");
+    		scanf("%[^\n]s",email);
+    		fflush(stdin);
+    		printf("Password : ");
+    		scanf("%[^\n]s",password);
+
+    pf = fopen("dataUser.txt","r");
+    while(fread(&s1,sizeof(dataUser),1,pf)){
+        if(strcmp(s1.email,email)==0){
+            if (strcmp(s1.password,password)==0) {	
+       			menu_user();
+				found = 1;
+				fclose(pf);
+			}else if(!found){
+				login_user();
+			}
+        }
+	}
+}
+	
+	int pengguna(){
+		do{
+		system("cls");
+        printf("\n===========================================\n\t\tHalaman User\n-------------------------------------------\n");
+        printf("Pilih salah satu pengguna!");
+        printf("\n1. Registrasi\n");
+        printf("\n2. Login\n");
+        printf("\n3. Keluar");
+        printf("\n===========================================\n");
+        printf("Pilihan Anda ?");
+        scanf("%d",&pilih2);
+        printf("\n===========================================\n");
+        if(pilih2>3){
+     		system("cls");
+            printf("INPUT SALAH, COBA LAGI!\n");
+		}switch(pilih2){
+			case 1:
+				
+				system("cls");
+				printf("======================\n");
+				printf("REGISTRASI\n");
+				printf("======================\n");
+				
+		           	 dataUser *s;
+		        	int n,i,j;
+
+		        s = (dataUser*)malloc(100*sizeof(dataUser));
+		        pf = fopen("dataUser.txt","w+");
+		
+		        for(i=0;i<1;i++){
+		        	fflush(stdin);
+		            printf("Nomor KTP : ");
+		            scanf("%[^\n]s",s[i].ktp);
+		            fflush(stdin);
+		            printf("Nama Lengkap : ");
+		            scanf("%[^\n]s",s[i].nama);
+		            fflush(stdin);
+		            printf("Nomor Handphone : ");
+		            scanf("%[^\n]s",s[i].hp);
+		            fflush(stdin);
+		            printf("Email : ");
+		            scanf("%[^\n]s",s[i].email);
+		            fflush(stdin);
+		            printf("Password : ");
+		            scanf("%[^\n]s",s[i].password);
+		            fflush(stdin);
+		            printf("Re-Password : ");
+		            scanf("%[^\n]s",s[i].repassword);
+		
+		            fwrite(s+i,sizeof(dataUser),1,pf);
+				        }
+				    fclose(pf);
+				
+				printf("Kembali ke menu [y/t] ? ");
+        		again=getch();
+				break;	
+			
+			case 2:
+					login_user();
+					break;
+				
+			case 3:
+				
+					system("cls");
+					menu_utama();
+					break;
+		
+		}
+	}while (again == 'y');
+}
+	
+int menu_admin(){
+	do{
+		system("cls");
+		printf("======== Menu Admin ========\n");
+		printf("Welcome Admin \n");
+		printf("1. Kelola Akun\n");
+		printf("2. Kelola Kota\n");
+		printf("3. Kelola Rute\n");
+		printf("4. Lihat Pemasukan\n");
+		printf("5. Lihat Jadwal Kereta Api\n");
+		printf("6. Logout\n");
+		printf("Pilihan Anda : ");
+		scanf("%d",&pilih4);
+		if(pilih4>6){
+			system("cls");
+            printf("INPUT SALAH, COBA LAGI!\n");
+		}switch(pilih4){
+			case 1:
+				system("cls");
+				printf("Halaman Kelola Akun\n");
+				printf("\n===========================\n\n");
+				int i, j, found=0;
+			    dataUser s1;
+			    char ktp[100];
+			    fflush(stdin);
+			    printf("Masukkan Nomor KTP : ");
+			    scanf("%[^\n]s",ktp);
+			
+			    pf = fopen("dataUser.txt","r");
+			    pf1 = fopen("temp.txt","w");
+			    while(fread(&s1,sizeof(dataUser),1,pf)){
+			        if(strcmp(s1.ktp,ktp)==0){
+			            found = 1;
+			            printf("--Data Pengguna--");
+			            printf("\nNama Lengkap : %s",s1.nama);
+			   			printf("\nNomor Handphone : %s",s1.hp);
+			   			printf("\nEmail : %s",s1.email);
+			   			printf("\nPassword : %s",s1.password);  
+			   			
+			   			printf("\n\n-- Ubah Data Pengguna --");
+			            fflush(stdin);
+			        	printf("\nNomor KTP : ");
+				        fflush(stdin);
+				        scanf("%[^\n]s",s1.ktp);
+				        fflush(stdin);
+				        printf("Nama Lengkap : ");
+				        scanf("%[^\n]s",s1.nama);
+				        fflush(stdin);
+				        printf("Nomor Handphone : ");
+				        scanf("%[^\n]s",s1.hp);
+				        fflush(stdin);
+				        printf("Email : ");
+				        scanf("%[^\n]s",s1.email);
+				        fflush(stdin);
+				        printf("Password : ");
+				        scanf("%[^\n]s",s1.password);
+				        fflush(stdin);
+				        printf("Re-Password : ");
+				        scanf("%[^\n]s",s1.repassword);
+			        }
+			        fwrite(&s1,sizeof(dataUser),1,pf1);
+			    }
+			    fclose(pf);
+			    fclose(pf1);
